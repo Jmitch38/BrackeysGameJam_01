@@ -6,6 +6,6 @@ public class LaserController : MonoBehaviour
 {    
 	void Update ()
     {
-        transform.Translate(Vector2.up * 5 * Time.deltaTime, Space.Self);
+        transform.Translate(Vector2.up * 10 * Time.deltaTime, Space.Self);
 	}
 }

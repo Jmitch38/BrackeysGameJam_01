@@ -208,14 +208,17 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "YellowEnemy")
         {
             health -= 1;
+            Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "BlueEnemy")
         {
             health -= 1;
+            Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "RedEnemy")
         {
             health -= 1;
+            Destroy(other.gameObject);
         }
         #endregion
     }
