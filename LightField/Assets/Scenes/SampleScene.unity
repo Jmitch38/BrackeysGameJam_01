@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4402893, y: 0.42570084}
   m_AnchorMax: {x: 0.5555786, y: 0.46320027}
-  m_AnchoredPosition: {x: 1, y: 1.6000061}
+  m_AnchoredPosition: {x: 1, y: 1.625}
   m_SizeDelta: {x: -46, y: -14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106511450
@@ -543,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406528741}
   - component: {fileID: 406528740}
+  - component: {fileID: 406528744}
   - component: {fileID: 406528742}
   - component: {fileID: 406528743}
   m_Layer: 0
@@ -604,13 +605,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406528739}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.093782224, w: 0.9955928}
   m_LocalPosition: {x: -2.823, y: -0.393, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.762}
 --- !u!58 &406528742
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -646,6 +647,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &406528744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406528739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c31b64379689b4c9f3b4219548f2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  speed: 1
+  BlueEnemy: 0
+  RedEnemy: 0
+  YellowEnemy: 1
 --- !u!1 &518429919
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 624181675}
   - component: {fileID: 624181674}
+  - component: {fileID: 624181678}
   - component: {fileID: 624181676}
   - component: {fileID: 624181677}
   m_Layer: 0
@@ -851,7 +869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &624181674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -946,6 +964,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &624181678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624181673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c31b64379689b4c9f3b4219548f2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  speed: 2
+  BlueEnemy: 0
+  RedEnemy: 1
+  YellowEnemy: 0
 --- !u!1 &767949683
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +1003,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 767949683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.398, y: 10.67, z: 0}
+  m_LocalPosition: {x: 19.32, y: 10.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124751654}
@@ -1247,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245773033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.398, y: -0.13, z: 0}
+  m_LocalPosition: {x: 19.36, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124751654}
@@ -1308,6 +1342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334547132}
   - component: {fileID: 1334547131}
+  - component: {fileID: 1334547135}
   - component: {fileID: 1334547133}
   - component: {fileID: 1334547134}
   m_Layer: 0
@@ -1316,7 +1351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1334547131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1411,6 +1446,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1334547135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334547130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c31b64379689b4c9f3b4219548f2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  speed: 1
+  BlueEnemy: 1
+  RedEnemy: 0
+  YellowEnemy: 0
 --- !u!1 &1531295640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07163514, y: 0.9033959}
   m_AnchorMax: {x: 0.17047636, y: 0.94635683}
-  m_AnchoredPosition: {x: 4.300049, y: 1.3000488}
+  m_AnchoredPosition: {x: 4, y: 1.25}
   m_SizeDelta: {x: -23.000008, y: -17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531295642
