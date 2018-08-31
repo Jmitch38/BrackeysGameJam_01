@@ -22,8 +22,13 @@ public class PlayerController : MonoBehaviour
     //Variables and other
     #region
     int LaserSelction;
+    float LoadsceneTimer;
     float FireTimer;
     GameObject CurrentLaser;
+    float TimerSeconds;
+    float TimerTenSeconds;
+    float TimerMinutes;
+    AudioSource audioSource;
 
     [Header("--Ship Variables--")]
     public float Speed;
@@ -40,14 +45,23 @@ public class PlayerController : MonoBehaviour
     public Text PlayerHealth;
     public Text YouDied;
     public Text CurrentLaserSelection;
+    public Text Timer;
+
+    [Header("--Audio--")]
+    public AudioClip LaserShoot;
+    public AudioClip Explosion;
     #endregion
 
     void Start()
     {
         #region
+        audioSource = GetComponent<AudioSource>();
         YouDied.gameObject.SetActive(false);
         FireTimer = 0;
         LaserSelction = 0;
+        TimerMinutes = 0;
+        TimerSeconds = 0;
+        LoadsceneTimer = 5;
         #endregion
     }
 
@@ -121,7 +135,8 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(CurrentLaser, LaserSpawn1.position, LaserSpawn1.rotation);
                 Instantiate(CurrentLaser, LaserSpawn2.position, LaserSpawn2.rotation);
-                FireTimer += 2;
+                FireTimer += .15f;
+                audioSource.PlayOneShot(LaserShoot, .7f);
             }
         }
         #endregion
@@ -176,6 +191,8 @@ public class PlayerController : MonoBehaviour
         {
             YouDied.gameObject.SetActive(true);
         }
+
+        Timer.text = "Time: " + TimerMinutes + ":" + TimerTenSeconds + Mathf.Round(TimerSeconds);
         #endregion
     }
 
@@ -184,7 +201,7 @@ public class PlayerController : MonoBehaviour
         #region
         if(health <= 0)
         {
-            if(Input.GetButtonDown("ESC"))
+            if(LoadsceneTimer <= 0)
             {
                 SceneManager.LoadSceneAsync("MainMenu");
             }
@@ -199,6 +216,26 @@ public class PlayerController : MonoBehaviour
         {
             FireTimer -= 1 * Time.fixedDeltaTime;
         }
+
+        if(health > 0)
+        {
+            TimerSeconds += 1 * Time.fixedDeltaTime;
+            if(TimerSeconds > 9)
+            {
+                TimerTenSeconds += 1;
+                TimerSeconds = 0;
+            }
+            if(TimerTenSeconds > 5)
+            {
+                TimerMinutes += 1;
+                TimerTenSeconds = 0;
+            }
+        }
+
+        if(health <= 0)
+        {
+            LoadsceneTimer -= 1 * Time.fixedDeltaTime;
+        }
         #endregion
     }
 
@@ -209,16 +246,19 @@ public class PlayerController : MonoBehaviour
         {
             health -= 1;
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(Explosion, .5f);
         }
         if(other.gameObject.tag == "BlueEnemy")
         {
             health -= 1;
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(Explosion, .5f);
         }
         if(other.gameObject.tag == "RedEnemy")
         {
             health -= 1;
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(Explosion, .5f);
         }
         #endregion
     }
